@@ -21,7 +21,7 @@ volatile uint32_t G_yellow_ticks = 0;
 volatile uint32_t G_ms_ticks = 0;
 
 volatile uint16_t G_red_period = 1000;
-volatile uint16_t G_green_period = 1000;
+volatile uint16_t G_green_period = 1000
 volatile uint16_t G_yellow_period = 1000;
 
 volatile uint16_t G_release_red = 0;
@@ -67,7 +67,7 @@ int main(void) {
 	// Initialization here.
 	lcd_init_printf();	// required if we want to use printf() for LCD printing
 	init_LEDs();
-	//init_timers();
+	init_timers();
 	init_menu();	// this is initialization of serial comm through USB
 	
 	clear();	// clear the LCD

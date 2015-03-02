@@ -99,10 +99,10 @@ void set_toggle(char color, int ms) {
 			
 			// set the OCR1A (TOP) to get (approximately) the requested frequency.
 			if ( ms > 0 ) {
-			    ICR1 = (uint16_t) (G_green_period * 39.0625);
-			    
-				//OCR1A = 25000;//TODO add a computed value here
-				printf("Green to toggle at freq %dHz (period %d ms)\n", (int)(1000/G_green_period) ,G_green_period);	
+			    TCCR1A = 0x40;
+                TCCR1B = 0x0D;
+			    OCR1A = (uint16_t)(G_green_period * 19.53);
+				printf("Green %d, %d\n", G_green_period, OCR1A);	
 			}
  		}
 }

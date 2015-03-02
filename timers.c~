@@ -21,8 +21,8 @@ extern uint16_t G_release_red;
 
 void init_timers() {
 
-    int length = 0;
-    char tempBuf[32];
+    //int length = 0;
+    //char tempBuf[32];
 	// -------------------------  RED --------------------------------------//
 	// Software Clock Using Timer/Counter 0.
 	// THE ISR for this is below.
@@ -90,9 +90,8 @@ void init_timers() {
     // Mode 14 wgm, clock select, ocr 1a to half of ocr
     // Toggle OC1A on a compare match. Thus COM1A_10 = 01
     // Using pre-scaler 1024. This is CS1/2/1/0 = 101
-    TCCR1A = 0x82;
-    TCCR1B = 0x1D;
-    ICR1 = (uint16_t) (G_green_period * 39.0625);
+    TCCR1A = 0x40;
+    TCCR1B = 0x0D;
 
 	// Interrupt Frequency: ? = f_IO / (1024*OCR1A)
 	// equation ==>  OCR1A = period * 20000000 / (1024 * 1000) = period * 19.53
@@ -100,7 +99,7 @@ void init_timers() {
 	// NOTE: This IS the toggle frequency.
 	//length = sprintf(tempBuf, "green period %d\n",G_green_period);
 	//print_usb(tempBuf, length);
- 	OCR1A = (uint16_t)ICR1/2;//(uint16_t) (G_green_period * 19.53 / 2);
+ 	OCR1A = (uint16_t) (G_green_period * 19.53);
 	//length = sprintf(tempBuf, "Set OCR1A to %d\n",OCR1A);
 	//print_usb(tempBuf, length);
  	//length = sprintf(tempBuf, "green init freq %dHz (period %d ms)\n",
