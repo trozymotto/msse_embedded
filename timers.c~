@@ -111,7 +111,7 @@ void init_timers() {
 	OCR1B = 1;
 
 	//Enable output compare match interrupt on timer 1B
-    //TIMSK1 |= 0x04;
+    TIMSK1 |= 0x02;
 
 
 }

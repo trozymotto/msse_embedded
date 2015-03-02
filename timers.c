@@ -110,7 +110,7 @@ void init_timers() {
 	// Regardless of its value (provided it is less than OCR1A), it will match at the frequency of timer 1.
 	OCR1B = 1;
 
-	//Enable output compare match interrupt on timer 1B
+	//Enable output compare match interrupt on timer 1A
     TIMSK1 |= 0x02;
 
 

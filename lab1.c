@@ -20,9 +20,9 @@
 volatile uint32_t G_yellow_ticks = 0;
 volatile uint32_t G_ms_ticks = 0;
 
-volatile uint16_t G_red_period = 1000;
-volatile uint16_t G_green_period = 1000;
-volatile uint16_t G_yellow_period = 1000;
+volatile uint16_t G_red_period = 500;
+volatile uint16_t G_green_period = 500;
+volatile uint16_t G_yellow_period = 500;
 
 volatile uint16_t G_release_red = 0;
 
@@ -81,12 +81,12 @@ int main(void) {
 		// toggle the LED. Increment a counter.
 		LED_TOGGLE(RED);
 		G_red_toggles++;
-		length = sprintf( tempBuffer, "R toggles %d\r\n", G_red_toggles );
-		print_usb( tempBuffer, length );
-#ifdef ECHO2LCD
-		lcd_goto_xy(0,0);
-		printf("R:%d ",G_red_toggles);
-#endif
+//		length = sprintf( tempBuffer, "R toggles %d\r\n", G_red_toggles );
+//		print_usb( tempBuffer, length );
+//#ifdef ECHO2LCD
+//		lcd_goto_xy(0,0);
+//		printf("R:%d ",G_red_toggles);
+//#endif
 
 		// create a for-loop to kill approximately 1 second
 		for (i=0;i<100;i++) {
